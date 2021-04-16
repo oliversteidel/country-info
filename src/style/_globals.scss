@@ -1,0 +1,138 @@
+// lightmode colors
+
+$bg-light: hsl(0, 0%, 98%);
+$text-light: hsl(200, 15%, 8%);
+$input-text-light: hsl(0, 0%, 52%);
+$elements-light: hsl(0, 0%, 100%);
+
+// darkmode colors
+
+$bg-dark: hsl(207, 26%, 17%);
+$text-dark: hsl(0, 0%, 100%);
+$elements-dark: hsl(209, 23%, 22%);
+$elements-dark-hover: hsl(209, 23%, 30%);
+
+// shadow
+
+$shadow: 0 3px 10px rgba(black, 0.1);
+
+// font weights
+
+$light: 300;
+$semi-bold: 600;
+$extra-bold: 800;
+
+// breakpoint sizes
+
+$small: 22.5625rem;
+$flex-wrap-enabled: 39.75rem; //636px
+$medium: 44.5rem; //712px
+$large: 62.5rem; //1200px
+$x-large: 81.25rem; //1300px
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Nunito Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+    background-color: $bg-dark;
+}
+
+a,
+a:visited,
+a:focus {
+    text-decoration: none;
+    font-family: inherit;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+// elements transition on theme switch
+
+p, h1, h2, h3 {
+    transition: color .5s ease-in;
+}
+
+.wrapper, .card, .container, .btn {
+    transition: background .5s ease-out;
+
+}
+
+.btn {
+    min-width: 6.5rem;
+    height: 2.125rem;
+    padding: 0 1.5em;
+    margin-bottom: 0.625rem;
+    margin-right: 0.625rem;
+    background: $elements-dark;
+    color: $text-dark;
+    font-family: inherit;
+    border: none;
+    border-radius: 2px;
+    box-shadow: $shadow;
+    cursor: pointer;
+}
+
+// mixins
+
+@mixin breakpoint-up($size) {
+    @media only screen and (min-width: $size) {
+        @content;
+    }
+}
+
+// helper classes flex-box
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.ai-c {
+    align-items: center;
+}
+
+.jc-c {
+    justify-content: center;
+}
+
+.jc-sb {
+    justify-content: space-between;
+}
+
+.jc-fe {
+    justify-content: flex-end;
+}
+
+// helper classes theme switch
+
+.bg-light {
+    background: $bg-light !important;
+}
+
+.elem-light {
+    background: $elements-light !important;
+    color: $text-light !important;
+}
+
+.input-light {
+    background: $elements-light !important;
+    color: $input-text-light !important;
+}
